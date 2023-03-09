@@ -1,0 +1,41 @@
+.btn-group {
+	height: 26px;
+	width: 390px;
+	border-width: 0px;
+}
+
+.btnStyle {
+	height: 26px;
+	width: 26px;
+	border-style: solid;
+	border-color: black;
+	padding: 0px;
+	border-width: 1px;
+	background: gray;
+}
+
+.card {
+	height: 400px;
+	width: 390px;
+	border-width: 0px;
+	padding: 0px;
+	border: 0px;
+	position: absolute;
+	top: 20px;
+}
+
+.cover {
+	height: 26px;
+	width: 26px;
+	border-style: solid;
+	border-color: black;
+	padding: 0px;
+	border-width: 1px;
+	background: white;
+}
+
+img {
+	height: 20px;
+	width: 20px;
+	padding: 0px;
+}

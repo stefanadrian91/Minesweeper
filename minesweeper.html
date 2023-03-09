@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+          <div class="card">
+            <button type="button" class="btn btn-success" onclick="randomMines(), this.hidden = true;">PLAY</button>
+            <button type="button" class="btn btn-danger" onclick="window.location.reload();" hidden id="btnRestart">RESTART</button>
+          </div>
+          <div class="card">
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 1);" id="1"><img class="1"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 2);" id="2"><img class="2"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 3);" id="3"><img class="3"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 4);" id="4"><img class="4"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 5);" id="5"><img class="5"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 6);" id="6"><img class="6"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 7);" id="7"><img class="7"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 8);" id="8"><img class="8"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 9);" id="9"><img class="9"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 10);" id="10"><img class="10"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 11);" id="11"><img class="11"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 12);" id="12"><img class="12"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 13);" id="13"><img class="13"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 14);" id="14"><img class="14"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 15);" id="15"><img class="15"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 16);" id="16"><img class="16"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 17);" id="17"><img class="17"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 18);" id="18"><img class="18"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 19);" id="19"><img class="19"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 20);" id="20"><img class="20"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 21);" id="21"><img class="21"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 22);" id="22"><img class="22"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 23);" id="23"><img class="23"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 24);" id="24"><img class="24"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 25);" id="25"><img class="25"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 26);" id="26"><img class="26"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 27);" id="27"><img class="27"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 28);" id="28"><img class="28"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 29);" id="29"><img class="29"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 30);" id="30"><img class="30"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 31);" id="31"><img class="31"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 32);" id="32"><img class="32"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 33);" id="33"><img class="33"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 34);" id="34"><img class="34"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 35);" id="35"><img class="35"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 36);" id="36"><img class="36"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 37);" id="37"><img class="37"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 38);" id="38"><img class="38"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 39);" id="39"><img class="39"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 40);" id="40"><img class="40"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 41);" id="41"><img class="41"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 42);" id="42"><img class="42"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 43);" id="43"><img class="43"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 44);" id="44"><img class="44"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 45);" id="45"><img class="45"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 46);" id="46"><img class="46"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 47);" id="47"><img class="47"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 48);" id="48"><img class="48"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 49);" id="49"><img class="49"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 50);" id="50"><img class="50"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 51);" id="51"><img class="51"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 52);" id="52"><img class="52"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 53);" id="53"><img class="53"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 54);" id="54"><img class="54"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 55);" id="55"><img class="55"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 56);" id="56"><img class="56"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 57);" id="57"><img class="57"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 58);" id="58"><img class="58"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 59);" id="59"><img class="59"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 60);" id="60"><img class="60"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 61);" id="61"><img class="61"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 62);" id="62"><img class="62"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 63);" id="63"><img class="63"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 64);" id="64"><img class="64"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 65);" id="65"><img class="65"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 66);" id="66"><img class="66"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 67);" id="67"><img class="67"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 68);" id="68"><img class="68"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 69);" id="69"><img class="69"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 70);" id="70"><img class="70"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 71);" id="71"><img class="71"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 72);" id="72"><img class="72"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 73);" id="73"><img class="73"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 74);" id="74"><img class="74"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 75);" id="75"><img class="75"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 76);" id="76"><img class="76"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 77);" id="77"><img class="77"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 78);" id="78"><img class="78"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 79);" id="79"><img class="79"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 80);" id="80"><img class="80"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 81);" id="81"><img class="81"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 82);" id="82"><img class="82"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 83);" id="83"><img class="83"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 84);" id="84"><img class="84"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 85);" id="85"><img class="85"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 86);" id="86"><img class="86"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 87);" id="87"><img class="87"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 88);" id="88"><img class="88"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 89);" id="89"><img class="89"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 90);" id="90"><img class="90"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 91);" id="91"><img class="91"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 92);" id="92"><img class="92"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 93);" id="93"><img class="93"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 94);" id="94"><img class="94"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 95);" id="95"><img class="95"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 96);" id="96"><img class="96"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 97);" id="97"><img class="97"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 98);" id="98"><img class="98"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 99);" id="99"><img class="99"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 100);" id="100"><img class="100"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 101);" id="101"><img class="101"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 102);" id="102"><img class="102"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 103);" id="103"><img class="103"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 104);" id="104"><img class="104"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 105);" id="105"><img class="105"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 106);" id="106"><img class="106"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 107);" id="107"><img class="107"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 108);" id="108"><img class="108"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 109);" id="109"><img class="109"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 110);" id="110"><img class="110"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 111);" id="111"><img class="111"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 112);" id="112"><img class="112"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 113);" id="113"><img class="113"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 114);" id="114"><img class="114"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 115);" id="115"><img class="115"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 116);" id="116"><img class="116"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 117);" id="117"><img class="117"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 118);" id="118"><img class="118"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 119);" id="119"><img class="119"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 120);" id="120"><img class="120"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 121);" id="121"><img class="121"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 122);" id="122"><img class="122"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 123);" id="123"><img class="123"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 124);" id="124"><img class="124"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 125);" id="125"><img class="125"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 126);" id="126"><img class="126"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 127);" id="127"><img class="127"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 128);" id="128"><img class="128"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 129);" id="129"><img class="129"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 130);" id="130"><img class="130"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 131);" id="131"><img class="131"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 132);" id="132"><img class="132"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 133);" id="133"><img class="133"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 134);" id="134"><img class="134"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 135);" id="135"><img class="135"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 136);" id="136"><img class="136"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 137);" id="137"><img class="137"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 138);" id="138"><img class="138"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 139);" id="139"><img class="139"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 140);" id="140"><img class="140"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 141);" id="141"><img class="141"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 142);" id="142"><img class="142"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 143);" id="143"><img class="143"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 144);" id="144"><img class="144"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 145);" id="145"><img class="145"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 146);" id="146"><img class="146"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 147);" id="147"><img class="147"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 148);" id="148"><img class="148"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 149);" id="149"><img class="149"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 150);" id="150"><img class="150"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 151);" id="151"><img class="151"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 152);" id="152"><img class="152"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 153);" id="153"><img class="153"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 154);" id="154"><img class="154"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 155);" id="155"><img class="155"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 156);" id="156"><img class="156"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 157);" id="157"><img class="157"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 158);" id="158"><img class="158"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 159);" id="159"><img class="159"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 160);" id="160"><img class="160"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 161);" id="161"><img class="161"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 162);" id="162"><img class="162"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 163);" id="163"><img class="163"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 164);" id="164"><img class="164"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 165);" id="165"><img class="165"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 166);" id="166"><img class="166"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 167);" id="167"><img class="167"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 168);" id="168"><img class="168"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 169);" id="169"><img class="169"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 170);" id="170"><img class="170"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 171);" id="171"><img class="171"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 172);" id="172"><img class="172"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 173);" id="173"><img class="173"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 174);" id="174"><img class="174"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 175);" id="175"><img class="175"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 176);" id="176"><img class="176"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 177);" id="177"><img class="177"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 178);" id="178"><img class="178"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 179);" id="179"><img class="179"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 180);" id="180"><img class="180"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 181);" id="181"><img class="181"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 182);" id="182"><img class="182"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 183);" id="183"><img class="183"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 184);" id="184"><img class="184"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 185);" id="185"><img class="185"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 186);" id="186"><img class="186"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 187);" id="187"><img class="187"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 188);" id="188"><img class="188"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 189);" id="189"><img class="189"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 190);" id="190"><img class="190"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 191);" id="191"><img class="191"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 192);" id="192"><img class="192"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 193);" id="193"><img class="193"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 194);" id="194"><img class="194"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 195);" id="195"><img class="195"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 196);" id="196"><img class="196"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 197);" id="197"><img class="197"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 198);" id="198"><img class="198"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 199);" id="199"><img class="199"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 200);" id="200"><img class="200"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 201);" id="201"><img class="201"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 202);" id="202"><img class="202"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 203);" id="203"><img class="203"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 204);" id="204"><img class="204"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 205);" id="205"><img class="205"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 206);" id="206"><img class="206"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 207);" id="207"><img class="207"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 208);" id="208"><img class="208"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 209);" id="209"><img class="209"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 210);" id="210"><img class="210"></button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 211);" id="211"><img class="211"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 212);" id="212"><img class="212"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 213);" id="213"><img class="213"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 214);" id="214"><img class="214"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 215);" id="215"><img class="215"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 216);" id="216"><img class="216"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 217);" id="217"><img class="217"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 218);" id="218"><img class="218"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 219);" id="219"><img class="219"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 220);" id="220"><img class="220"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 221);" id="221"><img class="221"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 222);" id="222"><img class="222"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 223);" id="223"><img class="223"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 224);" id="224"><img class="224"></button>
+              <button type="button" class="btnStyle" disabled onmousedown="changeStyle(event, 225);" id="225"><img class="225"></button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h1 class="card">FLAGS:
+            
+          </h1>
+        </div>
+      </div>
+    </div>
+    <script src="minesweeper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
